@@ -1,21 +1,28 @@
-const axios = require('axios');
-const { makeid } = require('./id');
-const express = require('express');
-const fs = require('fs');
-let router = express.Router();
-const pino = require("pino");
-const {
-    default: makeWASocket,
+import axios from 'axios';
+import { makeid } from './id.js';
+import express from 'express';
+import fs from 'fs';
+import pino from 'pino';
+import {
+    default as makeWASocket,
     useMultiFileAuthState,
     delay,
     Browsers,
     makeCacheableSignalKeyStore
-} = require("@whiskeysockets/baileys");
+} from "@whiskeysockets/baileys";
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+// ES module equivalent for __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+let router = express.Router();
 
 function removeFile(FilePath) {
     if (!fs.existsSync(FilePath)) return false;
     fs.rmSync(FilePath, { recursive: true, force: true });
-};
+}
 
 router.get('/', async (req, res) => {
     const id = makeid();
@@ -79,4 +86,4 @@ router.get('/', async (req, res) => {
     return await getPaire();
 });
 
-module.exports = router;
+export default router;
