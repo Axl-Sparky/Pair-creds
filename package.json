@@ -5,6 +5,7 @@
     "start": "pm2 start . --attach --name ALONEBOY",
     "stop": "pm2 stop . --attach --name ALONEBOY"
   },
+    "type":"module",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.6.0",
     "pino": "^8.1.0",
