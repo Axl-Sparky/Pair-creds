@@ -7,7 +7,7 @@
   },
     "type":"module",
   "dependencies": {
-    "@whiskeysockets/baileys": "npm:@rexxhayanasi/elaina-bail",
+    "@whiskeysockets/baileys": "npm:sparky-baileys",
     "pino": "^8.1.0",
     "pm2": "latest",
     "body-parser": "^1.20.1",
